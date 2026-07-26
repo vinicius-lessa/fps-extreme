@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://3pi524trye8x"]
 
+[ext_resource type="PackedScene" uid="uid://cq6dlynkohtkr" path="res://player.tscn" id="1_0dwx2"]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
 albedo_color = Color(0.34901962, 0.34901962, 0.34901962, 1)
 
@@ -46,3 +48,6 @@ transform = Transform3D(0.017235603, -0.99934417, 0.031847294, 0.47565052, 0.036
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1596433749]
+
+[node name="Node3D" parent="." unique_id=1628911423 instance=ExtResource("1_0dwx2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.890408, 0)
