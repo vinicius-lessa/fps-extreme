@@ -33,7 +33,7 @@ public partial class Player : CharacterBody3D
 			// Em C#, não podemos modificar propriedades de um Vector3 diretamente dentro da Transform,
 			// então extraímos a rotação, aplicamos o Clamp no eixo X e devolvemos o vetor inteiro.
 			Vector3 cameraRot = _camera.Rotation;
-			cameraRot.X = Mathf.Clamp(cameraRot.X, Mathf.DegToRad(-80f), Mathf.DegToRad(80f));
+			cameraRot.X = Mathf.Clamp(cameraRot.X, Mathf.DegToRad(-50f), Mathf.DegToRad(80f));
 			_camera.Rotation = cameraRot;
 		}
 	}
