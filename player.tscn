@@ -30,3 +30,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9811039, 0.2069521)
 [node name="Gun" type="MeshInstance3D" parent="CharacterBody3D/Camera3D" unique_id=1063325936]
 transform = Transform3D(0.2, 0, 0, 0, 0.3, 0, 0, 0, 1, 0.15299517, -0.2987888, -0.6020694)
 mesh = SubResource("BoxMesh_h0jfm")
+
+[node name="RayCast3D" type="RayCast3D" parent="CharacterBody3D" unique_id=1418929708]
+transform = Transform3D(1.4252464e-15, -1.0619136e-06, 59.0557, -0.7459346, -1.0619136e-06, 0, 3.2605836e-08, -24.29375, -2.5814065e-06, 0.020998955, 0.5835483, -25.106411)
+collision_mask = 7

@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cq6dlynkohtkr" path="res://player.tscn" id="1_0dwx2"]
 [ext_resource type="Texture2D" uid="uid://crfb1eb0kheq7" path="res://assets/citrus_orchard_road_puresky_4k.exr" id="2_7b2gm"]
+[ext_resource type="PackedScene" uid="uid://bcpw1vrcjb2wk" path="res://player_2.tscn" id="3_wetts"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7b2gm"]
 load_path = "res://.godot/imported/texture_01.png-75429132b66012deb505c6cb3a836a6a.s3tc.ctex"
@@ -32,7 +33,7 @@ sky = SubResource("Sky_3pm27")
 transform = Transform3D(5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D" unique_id=1513824714]
-transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0)
+transform = Transform3D(9.999999, 0, 0, 0, 1, 0, 0, 0, 9.999999, -0.0056831357, -0.043269157, 0.0051891324)
 material_override = SubResource("StandardMaterial3D_yf5fn")
 mesh = SubResource("BoxMesh_4flbx")
 
@@ -45,7 +46,10 @@ transform = Transform3D(0.017235603, -0.99934417, 0.031847294, 0.47565052, 0.036
 shadow_enabled = true
 
 [node name="Node3D" parent="." unique_id=1628911423 instance=ExtResource("1_0dwx2")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.890408, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.877861, 1.8958211, -0.0049567223)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2028106785]
 environment = SubResource("Environment_ryepx")
+
+[node name="player2" parent="." unique_id=431766804 instance=ExtResource("3_wetts")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4255676, 1.7366195, -15.579236)

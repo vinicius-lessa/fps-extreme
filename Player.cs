@@ -8,14 +8,19 @@ public partial class Player : CharacterBody3D
 	[Export]
 	public float MouseSens { get; set; } = 0.005f; 
 	public Camera3D _camera;
+	public RayCast3D _raycast;
+	public StandardMaterial3D _material;
 
 	public override void _Ready()
 	{
 		// Trava e esconde o cursor do mouse no centro da tela (Essencial para FPS)
 		Input.MouseMode = Input.MouseModeEnum.Captured;
-		
+
 		// Pega a referência do nó Camera3D (Ajuste o caminho se a câmera estiver em outro nível)
 		_camera = GetNode<Camera3D>("Camera3D");
+		_raycast = GetNode<RayCast3D>("RayCast3D");
+		_material = (StandardMaterial3D)GetNode<MeshInstance3D>("MeshInstance3D").GetActiveMaterial(0).Duplicate();
+		
 	}
 
 	public override void _Input(InputEvent @event)
@@ -41,6 +46,21 @@ public partial class Player : CharacterBody3D
 	public override void _PhysicsProcess(double delta)
 	{
 		Vector3 velocity = Velocity;
+		
+		bool isColliding = _raycast.IsColliding();
+		if (Input.IsActionJustPressed("shoot"))
+		{
+			GD.Print("Pow");
+			if (_raycast.IsColliding())
+			{
+				var collider = (Player) _raycast.GetCollider();
+				//GD.Print($"Colidiu com: {collider.GetName()}");
+				// call function into target here
+				
+				collider.ChangeColor();
+			}
+		}
+
 
 		// Add the gravity.
 		if (!IsOnFloor())
@@ -77,5 +97,17 @@ public partial class Player : CharacterBody3D
 
 		Velocity = velocity;
 		MoveAndSlide();
+	}
+
+	public async void ChangeColor()
+	{
+		var mesh = GetNode<MeshInstance3D>("MeshInstance3D");
+		var material = new StandardMaterial3D();
+		material.AlbedoColor = Colors.Red;
+
+		mesh.MaterialOverride = material;
+		await ToSignal(GetTree().CreateTimer(1.0f), SceneTreeTimer.SignalName.Timeout);
+		GD.Print("-10 HP");
+		mesh.MaterialOverride = _material;
 	}
 }
